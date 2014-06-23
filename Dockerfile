@@ -7,9 +7,10 @@ RUN apt-get install -y \
   git \
   ruby-dev
 
-RUN mkdir /app
+RUN gem install bundler --no-ri --no-rdoc
+
+RUN git clone https://github.com/ktheory/hd6_app.git /app
 WORKDIR /app
-RUN git clone https://github.com/ktheory/hd6_app.git
-
-CMD ruby app.rb
-
+RUN bundle install
+EXPOSE 4567
+CMD ["ruby", "app.rb"]
