@@ -5,6 +5,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install -y \
   git \
+  build-essential \
   ruby-dev
 
 RUN gem install bundler --no-ri --no-rdoc
